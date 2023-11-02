@@ -51,19 +51,38 @@ import songs from './songs.js'
 console.log('ex 1', songs)
 
 const getTitle = songs.map(item => (item.title.toUpperCase()));
-console.log("ex 2", getTitle);
+console.log("ex 2", getTitle); // BIEN
+
+// opcion de destructuring
+// const getTitle = songs.map(({title}) => item.toUpperCase());
+// si tengo mas de una linea en el map, podemos abrir llaves y poner un return
+// ejemplo:
+// const getTitle = songs.map(({title}) => {
+    // console.log(etc)
+    //return myTitle.topperCase();
+//}
 
 const getSongsBf1975 = songs.filter(item => item.year < 1975);
 console.log('ex 3', getSongsBf1975);
 
-const [{firstSong}] = songs;
-console.error('ex 4', firstSong); // NO ME SALE
+const [{title: firstSong}] = songs; // me faltaba ponerle el alias para que funcione
+console.log('ex 4', firstSong); 
 
-const getHotelCalifornia = songs.find (item => item.title = "Hotel California")
+
+// const firstSong = songs[0];
+// const {title:firstSongg} = firstSong; // los : son para poner un alias
+// console.error('ex 4', firstSongg); 
+
+// otra opcion
+// con ...
+
+const getHotelCalifornia = songs.find (item => item.title === "Hotel California")
 console.log('ex 5', getHotelCalifornia);
+// destructuring
+// const getHotelCalifornia = songs.find(({title})=> title === 'Hotel California')
 
 // no puedo hacer el 6
-console.error('ex 6, no pude hacerlo')
+// Deje anotado en notion la respuesta
 
 const reformattedArray = songs.map(({ title, artist, year }) => {
     return `
@@ -72,10 +91,25 @@ const reformattedArray = songs.map(({ title, artist, year }) => {
 });
 console.warn('ex 7', reformattedArray); // Revisar
 
-const byTheBeatles = songs.filter (item=> item.artist == "The Beatles")
-console.warn('ex 8', byTheBeatles);  // Le falta el destructuring
+// FORMA CORRECTA
+const anotherFormat = songs.map(({title, artist, year})=> `${title} - ${artist} (${year})`)
+console.log('ex 7', anotherFormat);
 
-// el 9 y 10 no lo hago pq tiene reduce y no llego con el tiempo a ver este tema
+const byTheBeatles = songs.filter (item=> item.artist === "The Beatles")
+console.warn('ex 8', byTheBeatles);  // Le falta el destructuring y no esta bien pq es solo el titulo
+
+// FORMA CORRECTA
+const songsTheBeatles = songs.filter(({artist})=> artist === "The Beatles").map(({title})=> title)
+console.log('ex 8', songsTheBeatles);
+
+const totalYears = songs.reduce((acc, curr)=> acc + curr.year, 0);
+console.log('ex 9', totalYears);
+
+import averageYears from './utils.js'
+console.log('10', averageYears);
+
+// el 11 esta en Notion
+
 
 //const longestTitle = songs.find( item => item.title ? (i => i.length) )
 //console.log('ex 11', longestTitle);

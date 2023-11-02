@@ -4,7 +4,7 @@ const songs = [
   { title: 'Hotel California', artist: 'Eagles', year: 1977 },
   { title: 'Imagine', artist: 'John Lennon', year: 1971 },
   { title: 'Like a Rolling Stone', artist: 'Bob Dylan', year: 1965 },
-  { title: 'Sweet Child O Mine', artist: 'Guns N Roses', year: 1987 },
+  { title: 'Yellow Submarine', artist: 'The Beatles', year: 1987 },
   { title: 'Smells Like Teen Spirit', artist: 'Nirvana', year: 1991 },
   { title: 'Purple Haze', artist: 'Jimi Hendrix', year: 1967 },
   { title: 'Let It Be', artist: 'The Beatles', year: 1970 },
