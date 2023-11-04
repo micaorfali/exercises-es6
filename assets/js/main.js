@@ -47,6 +47,7 @@ Tips:
 20. Write your own function using at least 3 concepts.
 
 */
+
 import songs from './songs.js'
 console.log('ex 1', songs)
 
